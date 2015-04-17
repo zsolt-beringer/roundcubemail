@@ -155,12 +155,28 @@
 	background-position: 6px -1996px;
 }
 
-#sections-table #rcmrowgeneral .section {
-	background-position: 4px -573px;
+#sections-table.iconized .section:before {
+	display: inline-block;
+	font-family: 'FontAwesome';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0);
+	position: relative;
+	top: 2px;
+	left: -2px;
+	width: 24px;
+	margin-left: -30px;
+	margin-right: 6px;
+	text-align: center;
+	text-shadow: 0px 1px 1px #fff;
 }
 
-#sections-table #rcmrowgeneral.selected .section {
-	background-position: 4px -598px;
+#sections-table.iconized .section.general:before {
+	content: "\f108";
 }
 
 #sections-table #rcmrowmailbox .section {
