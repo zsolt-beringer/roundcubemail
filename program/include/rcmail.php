@@ -1127,7 +1127,19 @@ class rcmail extends rcube
                 // format each col
                 foreach ($a_show_cols as $col) {
                     $val = is_array($row_data[$col]) ? $row_data[$col][0] : $row_data[$col];
-                    $table->add($col, empty($attrib['ishtml']) ? $this->Q($val) : $val);
+
+                    // escape html
+                    if (empty($attrib['ishtml'])) {
+                        $val = html::quote($val);
+                    }
+
+                    // check if we want to add a class to this table cell
+                    $clskey = $col . '_class';
+                    if (!empty($row_data[$clskey])) {
+                        $col .= ' ' . $row_data[$clskey];
+                    }
+
+                    $table->add($col, $val);
                 }
             }
         }

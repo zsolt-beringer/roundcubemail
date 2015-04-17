@@ -73,6 +73,13 @@ function rcmail_sections_list($attrib)
 
     list($list, $cols) = rcmail_user_prefs();
 
+    // add section keys as class name to the primary col
+    array_walk($list, function(&$item, $key) use ($attrib) {
+        if (!isset($item['section_class'])) {
+            $item['section_class'] = trim($attrib['classprefix'] . $key);
+        }
+    });
+
     // create XHTML table
     $out = $RCMAIL->table_output($attrib, $list, $cols, 'id');
 
